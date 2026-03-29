@@ -22,13 +22,13 @@
 
 ---
 
-## Why KLLAPP?
+## Why kllapp?
 
 Most resource planning tools like **Float** ($7/user/mo), **Harvest** ($9/user/mo), **Runn** ($11/user/mo), or **Productive.io** ($24/user/mo) charge per seat and lock your data in their cloud.
 
-KLLAPP gives you the same capabilities — **on your own infrastructure, with no per-seat fees**.
+kllapp gives you the same capabilities — **on your own infrastructure, with no per-seat fees**.
 
-| Feature | Float | Harvest | Runn | KLLAPP |
+| Feature | Float | Harvest | Runn | kllapp |
 |---------|-------|---------|------|--------|
 | Resource scheduling | Yes | No | Yes | **Yes** |
 | Time tracking | Yes | Yes | Yes | **Yes** |

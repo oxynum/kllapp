@@ -1,8 +1,8 @@
-# KLLAPP — AI Assistant Guide
+# kllapp — AI Assistant Guide
 
 ## Project
 
-KLLAPP is a self-hosted resource planning, time tracking, and project profitability platform built with Next.js 16 (App Router), TypeScript, Drizzle ORM, PostgreSQL, Liveblocks, and Tailwind CSS v4.
+kllapp is a self-hosted resource planning, time tracking, and project profitability platform built with Next.js 16 (App Router), TypeScript, Drizzle ORM, PostgreSQL, Liveblocks, and Tailwind CSS v4.
 
 ## Quick Setup (for AI agents)
 

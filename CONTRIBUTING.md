@@ -1,6 +1,6 @@
-# Contributing to KLLAPP
+# Contributing to kllapp
 
-Thanks for your interest in contributing to KLLAPP! This guide will help you get started.
+Thanks for your interest in contributing to kllapp! This guide will help you get started.
 
 ## Code of Conduct
 
