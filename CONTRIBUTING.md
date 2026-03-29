@@ -1,50 +1,129 @@
 # Contributing to KLLAPP
 
-Thank you for your interest in contributing to KLLAPP!
+Thanks for your interest in contributing to KLLAPP! This guide will help you get started.
+
+## Code of Conduct
+
+Be respectful, constructive, and inclusive. We welcome contributors of all experience levels.
 
 ## Getting Started
 
-1. Fork the repository
-2. Clone your fork: `git clone https://github.com/your-username/kllapp.git`
-3. Install dependencies: `npm ci`
-4. Start the dev environment:
-   ```bash
-   docker compose up -d    # PostgreSQL + Redis
-   cp .env.example .env.local
-   # Edit .env.local with your values
-   npm run db:push          # Create database schema
-   npm run db:seed           # Add sample data
-   npm run dev               # Start dev server
-   ```
-5. Open http://localhost:3000
+### Prerequisites
 
-## Development
+- **Node.js** >= 20
+- **Docker** (for PostgreSQL + Redis)
+- **Git**
 
-- `npm run dev` — Start development server
-- `npm run build` — Production build
-- `npm run lint` — Run linter
-- `npm run test` — Run tests
-- `npm run test:watch` — Run tests in watch mode
-- `npm run test:coverage` — Run tests with coverage
-- `npm run db:studio` — Open Drizzle Studio (DB viewer)
+### Setup
 
-## Pull Request Process
+```bash
+# 1. Fork the repo on GitHub, then clone your fork
+git clone https://github.com/YOUR_USERNAME/kllapp.git
+cd kllapp
 
-1. Create a feature branch from `main`
+# 2. Install dependencies
+npm ci
+
+# 3. Start PostgreSQL + Redis
+docker compose up -d
+
+# 4. Configure environment
+cp .env.example .env.local
+# Edit .env.local — see .env.example for documentation
+# Minimum: AUTH_SECRET (run: openssl rand -hex 32)
+
+# 5. Create the database schema
+npm run db:push
+
+# 6. (Optional) Seed sample data
+npm run db:seed
+
+# 7. Start the dev server
+npm run dev
+```
+
+Open http://localhost:3000
+
+## Development Workflow
+
+### Branch naming
+
+```
+feat/budget-alerts
+fix/calendar-cache
+refactor/email-provider
+docs/deployment-guide
+```
+
+### Making changes
+
+1. Create a branch from `main`: `git checkout -b feat/your-feature`
 2. Make your changes
-3. Ensure `npm run build` passes
-4. Ensure `npm run lint` passes
-5. Ensure `npm run test` passes
-6. Submit a PR with a clear description
+3. Ensure all checks pass:
+   ```bash
+   npm run lint        # No errors
+   npm run build       # Compiles
+   npm run test        # Tests pass
+   ```
+4. Commit with [Conventional Commits](https://www.conventionalcommits.org/):
+   ```
+   feat: add weekly summary email
+   fix: calendar events not showing on weekends
+   ```
+5. Push and open a Pull Request
 
-## Code Style
+## Pull Request Checklist
 
-- TypeScript strict mode
-- Tailwind CSS for styling
-- Server Components by default, Client Components when needed
-- Server Actions for data mutations
-- next-intl for internationalization (FR + EN)
+- [ ] `npm run build` passes
+- [ ] `npm run lint` passes (0 errors)
+- [ ] `npm run test` passes
+- [ ] New features include translations (FR + EN)
+- [ ] Database queries are scoped by `organizationId`
+- [ ] No secrets or sensitive data in code
 
-## License
+## Code Standards
 
-By contributing, you agree that your contributions will be licensed under the project's [Sustainable Use License](LICENSE).
+- **TypeScript strict** — no `any` types
+- **Zod** for all server action input validation
+- **Server Components** by default, `"use client"` only when needed
+- **Tailwind CSS v4** — config in CSS, no JS config file
+- **Icons**: `@phosphor-icons/react` or `iconoir-react` only
+- **i18n**: all user-facing strings in `src/messages/{locale}.json`
+- **Auth**: use `auth()` from `src/auth.ts`, call `requireOrgContext()` in every server action
+- **Email**: use `sendEmail()` from `src/lib/email.ts`
+
+## Common Tasks
+
+### Add a new database table
+1. Define in `src/lib/db/schema.ts`
+2. Add migration SQL in `scripts/migrate-prod.ts`
+3. Run `npm run db:push`
+
+### Add a new panel
+1. Add type to `PanelMode` in `src/types/index.ts`
+2. Create component in `src/components/sheet/panel/`
+3. Add opener in `src/components/sheet/use-sheet-panel.ts`
+4. Render in `src/components/sheet/sheet-panel.tsx`
+
+### Add a new AI tool
+1. Create tool file in `src/lib/ai/tools/`
+2. Register in `src/lib/ai/tools/index.ts`
+3. Add permissions in `src/lib/ai/permissions.ts`
+
+### Add a translation
+1. Add key to both `src/messages/fr.json` and `src/messages/en.json`
+2. Use `useTranslations("namespace")` + `t("key")`
+
+## Testing
+
+```bash
+npm run test              # Single run
+npm run test:watch        # Watch mode
+npm run test:coverage     # With coverage
+```
+
+Tests in `src/__tests__/` — Vitest + @testing-library/react.
+
+---
+
+Thank you for contributing!
