@@ -51,7 +51,7 @@
     "react-markdown": "^10.1.0",
     "react-responsive-carousel": "^3.2.23",
     "remark-gfm": "^4.0.1",
-    "resend": "^6.9.3",
+    "resend": "^6.9.4",
     "zod": "^4.3.6"
   },
   "devDependencies": {
