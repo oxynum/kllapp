@@ -22,7 +22,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
     "@auth/drizzle-adapter": "^1.11.1",
-    "@aws-sdk/client-s3": "^3.1003.0",
+    "@aws-sdk/client-s3": "^3.1019.0",
     "@aws-sdk/s3-request-presigner": "^3.1003.0",
     "@glideapps/glide-data-grid": "^6.0.3",
     "@liveblocks/client": "^3.15.5",
