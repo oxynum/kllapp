@@ -1,0 +1,22 @@
+"use client";
+
+import { useCallback, useSyncExternalStore } from "react";
+
+export function useMediaQuery(query = "(min-width: 768px)") {
+  const subscribe = useCallback(
+    (callback: () => void) => {
+      const mql = window.matchMedia(query);
+      mql.addEventListener("change", callback);
+      return () => mql.removeEventListener("change", callback);
+    },
+    [query]
+  );
+
+  const getSnapshot = useCallback(() => window.matchMedia(query).matches, [query]);
+
+  const getServerSnapshot = useCallback(() => false, []);
+
+  const matches = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  return { isMobile: !matches };
+}

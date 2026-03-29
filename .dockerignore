@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.github
+.grok
+.vercel
+.claude
+.env
+.env.*
+!.env.example
+docs/plans
+*.md
+!README.md
+!CONTRIBUTING.md
+!SECURITY.md

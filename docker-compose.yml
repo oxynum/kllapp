@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: kllapp-db
+    environment:
+      POSTGRES_DB: kllapp
+      POSTGRES_USER: kllapp
+      POSTGRES_PASSWORD: kllapp_dev
+    ports:
+      - "5433:5432"
+    volumes:
+      - kllapp_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: kllapp-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - kllapp_redis:/data
+
+volumes:
+  kllapp_data:
+  kllapp_redis:

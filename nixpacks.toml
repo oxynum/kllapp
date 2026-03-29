@@ -1,0 +1,11 @@
+# Railway build configuration
+# Fixes: npm warn config production Use `--omit=dev` instead
+
+[phases.install]
+cmds = ['npm ci']
+
+[phases.build]
+cmds = ['npm run build']
+
+[start]
+cmd = 'npm start'
