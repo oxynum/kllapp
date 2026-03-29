@@ -8,15 +8,16 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/dathims/kllapp/actions/workflows/ci.yml"><img src="https://github.com/dathims/kllapp/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/oxynum/kllapp/actions/workflows/ci.yml"><img src="https://github.com/oxynum/kllapp/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Sustainable%20Use-blue" alt="License" /></a>
   <img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen" alt="Node" />
   <img src="https://img.shields.io/badge/next.js-16-black" alt="Next.js" />
   <img src="https://img.shields.io/badge/PostgreSQL-16-336791" alt="PostgreSQL" />
 </p>
 
-<!-- Add your screenshots here -->
-<!-- <p align="center"><img src="public/screenshots/spreadsheet.png" alt="Spreadsheet view" width="800" /></p> -->
+<p align="center">
+  <img src="public/screenshots/kllapp-preview.png" alt="KLLAPP — Spreadsheet view with project detail panel" width="900" />
+</p>
 
 ## Features
 
